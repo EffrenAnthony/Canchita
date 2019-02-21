@@ -1,10 +1,12 @@
-<h3>
-  El peluca SAPE
-</h3>
-<h2>
-    Pero Ma Bien 
-</h2>
-<h1>
-  ----> Negro: LOKITA!
-</h1>
+<div class="container mt-5">
+  <div class="card-columns">
+    <div class="card" *ngFor="let usuario of usuarios">
+      <img src="{{usuario.avatar}}" class="card-img-top" alt="Foto usuario">
+      <div class="card-body">
+        <h5 class="card-title">{{usuario.first_name}}</h5>
+        <p class="card-text">{{usuario.last_name}}.</p>
+      </div>
+    </div>  
+  </div>
+</div>
 

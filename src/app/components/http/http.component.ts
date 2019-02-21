@@ -8,12 +8,14 @@ import { HttpService } from '../../service/http.service';
   styleUrls: ['./http.component.css']
 })
 export class HttpComponent implements OnInit, OnDestroy {
+  usuarios: Array<any> = []; 
   observer:any;
   constructor(private _sHttpService:HttpService) { }
 
   ngOnInit() {
     this.observer = this._sHttpService.getUsers().subscribe((respuesta)=>{
       console.log(respuesta);
+      this.usuarios = respuesta.data;
     },(error)=>{   
       
     });

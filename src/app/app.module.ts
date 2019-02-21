@@ -11,6 +11,7 @@ import { ErrorComponent } from './components/error/error.component';
 // HTTP
 
 import {HttpClientModule} from '@angular/common/http';
+import { CardUsuarioComponent } from './components/card-usuario/card-usuario.component';
 
 
 
@@ -20,7 +21,8 @@ import {HttpClientModule} from '@angular/common/http';
     NavbarComponent,
     HttpComponent,
     MainComponent,
-    ErrorComponent
+    ErrorComponent,
+    CardUsuarioComponent
   ],
   imports: [
     BrowserModule,
