@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpComponent } from './components/http/http.component';
 import { MainComponent } from './components/main/main.component';
 import { ErrorComponent } from './components/error/error.component';
+import { FormsComponent } from './components/forms/forms.component';
 
 
 const routes:Routes = [
@@ -13,6 +14,10 @@ const routes:Routes = [
   {
     path:'',
     component: MainComponent   
+  },
+  {
+    path:'forms',
+    component: FormsComponent
   },
   {
     path:'**',

@@ -1,0 +1,91 @@
+<div class="container">
+  <form #frmUsuario="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group mt-4">
+        <label for="nombre">Nombre</label>
+        <!-- el # es el identificador de un input en angular -->
+        <input type="text" 
+              id="nombre"
+              class="form-control" 
+              [ngClass] = "nombre.touched && !nombre.valid ? 'form-control is-invalid' : 'form-control'"
+              placeholder="Nombre..."
+              [(ngModel)]="usuario.nombre"
+              #nombre="ngModel"
+              name="nombre"
+              required>
+              <small class="text-danger" *ngIf="nombre.touched && !nombre.valid"> Por favor ingrese su nombre</small>
+      </div>
+      <div class="form-group mt-4">
+        <label for="apellido">Apellido</label>       
+        <input type="text" 
+              id="apellido"
+              class="form-control" 
+              [ngClass] = "apellido.touched && !apellido.valid ? 'form-control is-invalid' : 'form-control'"
+              placeholder="Apellido..."
+              [(ngModel)]="usuario.apellido"
+              #apellido="ngModel"
+              name="apellido"
+              required>
+              <small class="text-danger" *ngIf="apellido.touched && !apellido.valid"> Por favor ingrese su apellido</small>
+      </div>
+      <div class="form-group mt-4">
+        <label for="email">email</label> 
+        <input type="email" 
+              id="email"
+              class="form-control" 
+              [ngClass] = "email.touched && !email.valid ? 'form-control is-invalid' : 'form-control'"
+              placeholder="email..."
+              [(ngModel)]="usuario.email"
+              #email="ngModel"
+              name="email"
+              required>
+              <small class="text-danger" *ngIf="email.touched && !email.valid"> Por favor ingrese su email</small>
+      </div>
+      <div class="mt-4">
+        <!-- directiva disable: cen este caso cuadno algun valor no sea valido, y cuando todos sean validos, abilitar boton -->
+        <button type="submit" 
+                class="btn btn-block btn-outline-primary"
+                [disabled]="!frmUsuario.form.valid">Enviar Datos</button>
+      </div>    
+      <hr>
+      
+  </form>
+  <hr>
+  <h1 class="text-center">FORMULARIO POST</h1>
+  <form #frmUsuario="ngForm" (ngSubmit)="onPost()">
+      <div class="form-group mt-4">
+        <label for="name">Name</label>
+        <!-- el # es el identificador de un input en angular -->
+        <input type="text" 
+              id="name"
+              class="form-control" 
+              [ngClass] = "name.touched && !name.valid ? 'form-control is-invalid' : 'form-control'"
+              placeholder="Name..."
+              [(ngModel)]="userPost.name"
+              #name="ngModel"
+              name="name"
+              required>
+              <small class="text-danger" *ngIf="name.touched && !name.valid"> Por favor ingrese su name</small>
+      </div>
+      <div class="form-group mt-4">
+        <label for="apellido">Job</label>       
+        <input type="text" 
+              id="job"
+              class="form-control" 
+              [ngClass] = "job.touched && !job.valid ? 'form-control is-invalid' : 'form-control'"
+              placeholder="Apellido..."
+              [(ngModel)]="userPost.job"
+              #job="ngModel"
+              name="job"
+              required>
+              <small class="text-danger" *ngIf="job.touched && !job.valid"> Por favor ingrese su job</small>
+      </div>
+      
+      <div class="mt-4">
+        <!-- directiva disable: cen este caso cuadno algun valor no sea valido, y cuando todos sean validos, abilitar boton -->
+        <button type="submit" 
+                class="btn btn-block btn-outline-primary"
+                [disabled]="!frmUsuario.form.valid">Post</button>
+      </div>    
+      
+  </form>
+</div>

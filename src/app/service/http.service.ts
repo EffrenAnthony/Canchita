@@ -21,4 +21,25 @@ export class HttpService {
     // esta funcion retornará un observable
     return this._sHttpClient.get(url);
   }
+
+  createUser(_name:string, _job:string):Observable<any>{
+    let url = "https://reqres.in/api/users";
+    let usuario = {
+      name: _name,
+      job: _job
+    }
+    let usuarioJSON = JSON.stringify(usuario);
+    let misHeaders = new HttpHeaders().set('Content-Type','application/json');
+
+    // post recive una url , un json y finalmente un header o cabecera  
+    
+    return this._sHttpClient.post(url,usuarioJSON,{headers:misHeaders});
+
+    
+  }
 }
+
+//  Las Cabeceras HTTP son los parámetros que se envían en una petición o respuesta HTTP 
+    // al cliente o al servidor para proporcionar información esencial sobre la transacción en curso.
+    //  Estas cabeceras proporcionan información mediante la sintaxis 'Cabecera: Valor' y son enviadas 
+    // automáticamente por el navegador o el servidor Web.

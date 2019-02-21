@@ -23,11 +23,23 @@ export class HttpComponent implements OnInit, OnDestroy {
 
   }
 
+  crearUsuario(){
+    this._sHttpService.createUser("Jorge","Garnica").subscribe((respuesta)=>{
+
+      console.log(respuesta);   
+      
+    },(error)=>{   
+      console.log(error);
+      
+    });
+    
+  }
+
   // IMPORTANTE DES SUSCRIBIRSE A LA FUNCION
   
   ngOnDestroy() {
     
-    this.observer.unsuscribe();
+    this.observer.unsubscribe();
   }
 
 }

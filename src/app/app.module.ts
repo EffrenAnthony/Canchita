@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
@@ -12,6 +14,7 @@ import { ErrorComponent } from './components/error/error.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import { CardUsuarioComponent } from './components/card-usuario/card-usuario.component';
+import { FormsComponent } from './components/forms/forms.component';
 
 
 
@@ -22,12 +25,14 @@ import { CardUsuarioComponent } from './components/card-usuario/card-usuario.com
     HttpComponent,
     MainComponent,
     ErrorComponent,
-    CardUsuarioComponent
+    CardUsuarioComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
