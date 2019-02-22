@@ -9,12 +9,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpComponent } from './components/http/http.component';
 import { MainComponent } from './components/main/main.component';
 import { ErrorComponent } from './components/error/error.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment'
+
 
 // HTTP
 
 import {HttpClientModule} from '@angular/common/http';
 import { CardUsuarioComponent } from './components/card-usuario/card-usuario.component';
 import { FormsComponent } from './components/forms/forms.component';
+import { PipesComponent } from './components/pipes/pipes.component';
+import { CapitalizarPipe } from './pipes/capitalizar.pipe';
+import {FirestoreSettingsToken} from '@angular/fire/firestore';
+import { FirebaseComponent } from './components/firebase/firebase.component';
 
 
 
@@ -26,15 +34,20 @@ import { FormsComponent } from './components/forms/forms.component';
     MainComponent,
     ErrorComponent,
     CardUsuarioComponent,
-    FormsComponent
+    FormsComponent,
+    PipesComponent,
+    CapitalizarPipe,
+    FirebaseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule // imports firebase/firestore, only needed for database features
   ],
-  providers: [],
+  providers: [{provide : FirestoreSettingsToken, useValue:{}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

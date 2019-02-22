@@ -1,0 +1,81 @@
+
+<div class="container">
+  <table class="table">
+    <thead class="thead-inverse">
+      <tr class="text-center">
+        <th>Variable</th>
+        <th>Pipe</th>
+        <th>Resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-center">
+        <td>{{ nombre }}</td>
+        <td>uppercase</td>
+        <td>{{ nombre | uppercase }}</td>
+      </tr>
+      <tr class="text-center">
+        <td>{{ nombre }}</td>
+        <td>lowercase</td>
+        <td>{{ nombre | lowercase }}</td>
+      </tr>
+      <tr class="text-center">
+        <td>{{ nombre }}</td>
+        <td>slice</td>
+        <td>{{ nombre | slice:2:5 }}</td>
+      </tr>
+      <tr class="text-center">
+        <td>{{ arreglo }}</td>
+        <td>slice</td>
+        <td>{{ arreglo | slice:6:-2 }}</td>
+      </tr>
+      <tr class="text-center">
+        <td>{{ pi }}</td>
+        <td>number</td>
+        <td>{{ pi | number:'3.0-0' }}</td>
+      </tr>
+      <tr class="text-center">
+        <td>{{ igv }}</td>
+        <td>percent</td>
+        <td>{{ igv | percent:'2.1-2' }}</td>
+      </tr>
+      <tr class="text-center">
+        <td>{{ sueldo }}</td>
+        <td>currency</td>
+        <td>{{ sueldo | currency:'EUR' }}</td>
+      </tr>
+      <tr class="text-center">
+        <td>{{ sueldo }}</td>
+        <td>currency</td>
+        <td>{{ sueldo | currency:'PEN':'S/.':'4.0-0' }}</td>
+        <!-- * Uno puede mandar el string que desea, en caso el simbolo no exista -->
+      </tr>
+      <tr class="text-center">
+        <td>{{ perro }}</td>
+        <td>async</td>
+        <td>{{ perro | async }}</td>
+      </tr>
+      <tr class="text-center">
+        <td>{{ hoy }}</td>
+        <td>date</td>
+        <td>{{ hoy | date:'shortTime' }}</td>
+      </tr>
+      <tr class="text-center">
+        <td>{{ hoy }}</td>
+        <td>date</td>
+        <td>{{ hoy | date:'dd - MM - yyyy' }}</td>
+      </tr>
+      <tr class="text-center">
+        <td>{{ texto }}</td>
+        <td>capitalizar</td>
+        <td>{{ texto | capitalizar }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr> 
+  <h4> PIPE JSON </h4>
+  <p>
+    {{ objetoJson | json }}
+    <!-- ! El pipe json nos permite mostrar el contenido del JSON -->
+  </p>
+</div>
