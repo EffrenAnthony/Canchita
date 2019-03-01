@@ -1,5 +1,156 @@
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let canchita of canchitas | async">
-    {{canchitas.nombre}}
-  </li>  
-</ul>
+<div class="container canchas">
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="enviar()" #frmCrear="ngForm">
+        <input type="hidden" 
+               name="id"
+               id="id"
+               [(ngModel)]="_sFirebase.nuevaCancha.id">
+        <div class="form-group">
+          <label for="nombre">Nombre de la Canchita</label>
+          <input  type="text"
+                  name="nombre"
+                  id="nombre"
+                  class="form-control"
+                  placeholder="Nombre de la cancha..."
+                  [(ngModel)]="_sFirebase.nuevaCancha.nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="direccion">Dirección</label>
+          <input  type="text"
+                  name="direccion"
+                  id="direccion"
+                  class="form-control"
+                  placeholder="Direccion de la cancha..."
+                  [(ngModel)]="_sFirebase.nuevaCancha.direccion" required>
+        </div>
+        <button [disabled]="!frmCrear.valid"
+                class="btn btn-primary btn-block"
+                type="submit">Enviar Formulario</button>
+      </form>
+
+    </div>
+    <div class="col-md-6">
+      <table class="table table-hover">
+        <thead>
+          <th class="text-center"> Nombre</th>
+          <th class="text-center"> Direccion</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cancha of canchitas | async">
+            <td (click)="editarCancha(cancha)" class="text-center">{{ cancha.nombre}}</td>
+            <td (click)="editarCancha(cancha)" class="text-center">{{ cancha.direccion}}</td>
+            <td>
+              <a class="btn text-danger" (click)="borrar(cancha.id)">
+                <div class="icon-trash" style="float: left">
+                <div class="trash-lid" style="background-color: rgb(209, 17, 11)"></div>
+                <div class="trash-container" style="background-color: rgb(245, 3, 3)"></div>
+                <div class="trash-line-1"></div>
+                <div class="trash-line-2"></div>
+                <div class="trash-line-3"></div>
+                </div>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container canchas">
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="crearCancha()" #frmCrear="ngForm">
+        <div class="form-group">
+          <label for="nombre">Nombre de la Canchita</label>
+          <input  type="text"
+                  name="nombre"
+                  id="nombre"
+                  class="form-control"
+                  placeholder="Nombre de la cancha..."
+                  [(ngModel)]="nuevaCancha.nombre">
+        </div>
+        <div class="form-group">
+          <label for="direccion">Dirección</label>
+          <input  type="text"
+                  name="direccion"
+                  id="direccion"
+                  class="form-control"
+                  placeholder="Direccion de la cancha..."
+                  [(ngModel)]="nuevaCancha.direccion">
+        </div>
+        
+        <button class="btn btn-primary btn-block"
+                type="submit">Crear Cancha</button>
+
+        
+      </form>
+      <button class="btn btn-warning btn-block mt-4"
+                (click)="updateCancha()">Acrualizar Cancha</button>
+      <button class="btn btn-danger btn-block mt-4"
+                (click)="deleteCancha()">Borrar Cancha</button>        
+      
+    </div>
+    <div class="col-md-6">
+      <ul class="list-group" *ngFor="let cancha of canchitas | async">
+        <li class="list-group-item list-group-item-action"   (click)="onSelect(cancha)">
+          <h6><strong>Nombre: {{cancha.nombre}}</strong></h6>
+          <h6><strong>Direccion: {{cancha.direccion}}</strong></h6>
+          ID: {{cancha.id}}
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div> -->
+    <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Actualizar cancha
+  </button> -->
+  
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="updateCancha()" #frmActualizar="ngForm">
+                <div class="form-group">
+                  <label for="nombre">Nombre de la Canchita</label>
+                  <input  type="text"
+                          name="nombre"
+                          id="nombre"
+                          class="form-control"
+                          placeholder="Nombre de la cancha..."
+                          [(ngModel)]="nuevaCancha.nombre">
+                </div>
+                <div class="form-group">
+                  <label for="direccion">Dirección</label>
+                  <input  type="text"
+                          name="direccion"
+                          id="direccion"
+                          class="form-control"
+                          placeholder="Direccion de la cancha..."
+                          [(ngModel)]="nuevaCancha.direccion">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="submit" class="btn btn-primary">Actualizar</button>
+                
+                <button class="btn btn-primary btn-block"
+                        type="submit">Crear Cancha</button>       
+                
+              </form>
+        </div>
+        </div>
+      </div>
+    </div> -->
+
+ 

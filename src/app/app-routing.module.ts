@@ -6,6 +6,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { FormsComponent } from './components/forms/forms.component';
 import { PipesComponent } from './components/pipes/pipes.component';
 import { FirebaseComponent } from './components/firebase/firebase.component';
+import { BusquedaComponent } from './components/busqueda/busqueda.component';
 
 
 const routes:Routes = [
@@ -28,6 +29,10 @@ const routes:Routes = [
   {
     path: 'firebase',
     component: FirebaseComponent
+  },
+  {
+    path: 'busqueda/:termino',
+    component: BusquedaComponent
   },
   {
     path:'**',
