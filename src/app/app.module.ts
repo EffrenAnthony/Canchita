@@ -28,9 +28,9 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
 
 // TOASTR
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from ''
-import { FiltroPipe } from './pipes/filtro.pipe';
-import { LoginComponent } from './components/login/login.component';
+// import { ToastrModule } from ''
+// import { FiltroPipe } from './pipes/filtro.pipe';
+// import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -47,8 +47,8 @@ import { LoginComponent } from './components/login/login.component';
     CapitalizarPipe,
     FirebaseComponent,
     BusquedaComponent,
-    FiltroPipe,
-    LoginComponent
+    // FiltroPipe,
+    // LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +58,7 @@ import { LoginComponent } from './components/login/login.component';
     // firebase
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    ToastrModule.forRoot(),
+    // ToastrModule.forRoot(),
     BrowserAnimationsModule,
   ],
   providers: [{provide : FirestoreSettingsToken, useValue:{}}],

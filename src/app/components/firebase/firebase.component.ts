@@ -6,7 +6,7 @@ import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_di
 import { CanchaInterfaces } from '../../interface/cancha.interfaces';
 import { FirebaseService } from '../../service/firebase.service';
 // import { ToastrService, ToastrModule } from 'ngx-toastr';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -18,8 +18,9 @@ import { ToastrService } from 'ngx-toastr';
 export class FirebaseComponent implements OnInit {
   canchitas: Observable<any[]>;
 
-  constructor(private _sFirebase:FirebaseService,
-              private toastr: ToastrService) {
+  constructor(private _sFirebase:FirebaseService
+              // private toastr: ToastrService) {
+  ){
   }
   ngOnInit() {
     this.canchitas = this._sFirebase.getCanchas().pipe(
@@ -36,7 +37,7 @@ export class FirebaseComponent implements OnInit {
                       .then((response)=>{
                         console.log("canchita creada");
                       });
-                      this.toastr.success("El envío fue satisfactorio", "Operacion Exitosa");
+                      // this.toastr.success("El envío fue satisfactorio", "Operacion Exitosa");
                       
     }
     else{
